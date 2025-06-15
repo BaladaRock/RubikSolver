@@ -5,6 +5,7 @@ namespace RubikSolver.Helpers.Moves
 {
     /// <summary>
     ///  The move definitions for the Rubik's Cube.
+    /// Used the Kociemba scheme for piece labeling.
     /// </summary>
     internal static class MoveDefinitions
     {

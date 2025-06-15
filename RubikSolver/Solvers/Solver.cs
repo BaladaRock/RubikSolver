@@ -93,10 +93,9 @@ namespace RubikSolver.Solvers
 
             foreach (var kv in Moves.FaceMove)
             {
-                var next = kv.Value.Apply(st);
                 path.Add(kv.Key);
-                foreach (var sol in EnumerateExact(next, left - 1, path))
-                    yield return sol;
+                foreach (var s in EnumerateExact(kv.Value.Apply(st), left - 1, path))
+                    yield return s;
                 path.RemoveAt(path.Count - 1);
             }
         }

@@ -8,7 +8,7 @@ namespace SolverTest
     {
         private static void Main(string[] args)
         {
-            const string moves = "U R";
+            const string moves = "U R U";
 
             var solver = new Solver();
             PrintConfiguration(moves, CubeState.Solved);
@@ -20,7 +20,7 @@ namespace SolverTest
             PrintConfiguration(moves, currentConfiguration, true);
 
             // Test finding solution
-            var solution = solver.FindSolution(2);
+            var solution = solver.FindSolution(3);
             if (solution != null)
             {
                 Console.WriteLine("Solution found:");
