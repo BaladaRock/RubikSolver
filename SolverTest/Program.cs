@@ -32,7 +32,7 @@ namespace SolverTest
             }
 
             // Test finding solutions up to a given length
-            var solutions = solver.FindSolutions(2);
+            var solutions = solver.FindSolutions(4);
             if (solutions == null || !solutions.Any())
             {
                 Console.WriteLine($"No solution found!");
