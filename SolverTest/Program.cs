@@ -1,5 +1,6 @@
 ﻿using RubikSolver.Helpers;
 using RubikSolver.Solvers;
+using System.Linq;
 
 namespace SolverTest
 {
@@ -19,7 +20,7 @@ namespace SolverTest
             PrintConfiguration(moves, currentConfiguration, true);
 
             // Test finding solution
-            var solution = solver.FindSolution(4);
+            var solution = solver.FindSolution(2);
             if (solution != null)
             {
                 Console.WriteLine("Solution found:");
@@ -28,6 +29,18 @@ namespace SolverTest
             else
             {
                 Console.WriteLine("No solution found within the given depth.");
+            }
+
+            // Test finding solutions up to a given length
+            var solutions = solver.FindSolutions(2);
+            if (solutions == null || !solutions.Any())
+            {
+                Console.WriteLine($"No solution found!");
+            }
+
+            foreach (var sol in solutions)
+            {
+                Console.WriteLine($"Solution found: {sol}.");
             }
 
             Console.ReadKey();

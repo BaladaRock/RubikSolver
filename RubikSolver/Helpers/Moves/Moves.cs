@@ -21,12 +21,12 @@ namespace RubikSolver.Helpers.Moves
 
         internal static readonly Dictionary<string, MovesOperations> FaceMove = new()
         {
-            { "U" , U  }, { "U'", Pow(U,3) }, { "U2", Pow(U,2) },
-            { "R" , R  }, { "R'", Pow(R,3) }, { "R2", Pow(R,2) },
-            { "F" , F  }, { "F'", Pow(F,3) }, { "F2", Pow(F,2) },
-            { "D" , D  }, { "D'", Pow(D,3) }, { "D2", Pow(D,2) },
-            { "L" , L  }, { "L'", Pow(L,3) }, { "L2", Pow(L,2) },
-            { "B" , B  }, { "B'", Pow(B,3) }, { "B2", Pow(B,2) }
+            { "U" ,MoveDefinitions.U  }, { "U'", Pow( MoveDefinitions.U, 3) }, { "U2", Pow(MoveDefinitions.U, 2) },
+            { "R" ,MoveDefinitions.R  }, { "R'", Pow(MoveDefinitions.R, 3) }, { "R2", Pow(MoveDefinitions.R, 2) },
+            { "F" ,MoveDefinitions.F  }, { "F'", Pow(MoveDefinitions.F, 3) }, { "F2", Pow(MoveDefinitions.F, 2) },
+            { "D" ,MoveDefinitions.D  }, { "D'", Pow(MoveDefinitions.D, 3) }, { "D2", Pow(MoveDefinitions.D, 2) },
+            { "L" ,MoveDefinitions.L  }, { "L'", Pow(MoveDefinitions.L, 3) }, { "L2", Pow(MoveDefinitions.L, 2) },
+            { "B" ,MoveDefinitions.B  }, { "B'", Pow(MoveDefinitions.B, 3) }, { "B2", Pow(MoveDefinitions.B, 2) }
         };
     }
 }

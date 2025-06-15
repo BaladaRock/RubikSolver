@@ -4,7 +4,7 @@ namespace RubikSolver.Helpers;
 
 public sealed record CubeState(
     byte[] CornerPermutations, // 8 values values between 0-7
-    byte[] CornerOrientations,  // 8 values (0,1,or 2)  
+    byte[] CornerOrientations,  // 8 values (0, 1 or 2)  
     byte[] EdgePermutations,   // 12 values between 0-11
     byte[] EdgeOrientations     // 12 values (0 or 1)  
 )

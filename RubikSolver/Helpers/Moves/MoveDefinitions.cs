@@ -24,9 +24,9 @@ namespace RubikSolver.Helpers.Moves
                 EdgeOrientations: EdgesDefaultOrientation);
 
         public static readonly MovesOperations R = new(
-            CornerPermutations: [3, 0, 1, 2, 4, 5, 6, 7],
-            CornerOrientations: CornersDefaultOrientation,
-            EdgePermutations: [3, 0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11],
+            CornerPermutations: [4, 1, 2, 0, 7, 5, 6, 3],
+            CornerOrientations: [2, 0, 0, 1, 1, 0, 0, 2],
+            EdgePermutations: [8, 1, 2, 3, 11, 5, 6, 7, 4, 9, 10, 0],
             EdgeOrientations: EdgesDefaultOrientation);
 
         public static readonly MovesOperations F = I;  // placeholder
