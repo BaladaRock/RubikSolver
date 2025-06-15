@@ -8,7 +8,7 @@ namespace SolverTest
     {
         private static void Main(string[] args)
         {
-            const string moves = "U";
+            const string moves = "U R";
 
             var solver = new Solver();
             PrintConfiguration(moves, CubeState.Solved);
@@ -42,6 +42,11 @@ namespace SolverTest
             {
                 Console.WriteLine($"Solution found: {sol}.");
             }
+
+            // Test finding of the shortest solution up to a given length
+            var shortestSolution = solver.FindShortestSolution(6);
+            Console.WriteLine($"Shortest solution: {shortestSolution}");
+
 
             Console.ReadKey();
         }

@@ -40,12 +40,30 @@ namespace RubikSolver.Solvers
 
         public IEnumerable<string> FindSolutions(int maxMoves)
         {
+            var foundSolutions = new HashSet<string>();
+
             for (var len = 1; len <= maxMoves; len++)
             {
                 var path = new List<string>();
                 foreach (var sol in EnumerateExact(_state, len, path))
-                    yield return sol;
+                {
+                    if (foundSolutions.Add(sol))
+                    {
+                        yield return sol;
+                    }
+                }
             }
+        }
+
+        public string? FindShortestSolution(int maxMoves)
+        {
+            for (var len = 1; len <= maxMoves; len++)
+            {
+                var sol = FindSolution(len);
+                if (sol != null) return sol;
+            }
+
+            return null;
         }
 
         private static bool SearchExact(CubeState st, int left, List<string> path)
@@ -90,6 +108,15 @@ namespace RubikSolver.Solvers
             while (i < src.Count)
             {
                 var face = src[i];
+                // if the Face move is already compressed (e.g., "U2", "R'", etc.),
+                // do not compress it further
+                if (face.Length > 1)
+                {
+                    sb.Append(face);
+                    if (++i < src.Count) sb.Append(' ');
+                    continue;
+                }
+
                 var run = 1;
                 while (i + run < src.Count && src[i + run] == face)
                 {
@@ -102,8 +129,8 @@ namespace RubikSolver.Solvers
                     case 2: sb.Append(face).Append('2'); break;
                     case 3: sb.Append(face).Append('\''); break;
                 }
-                if (i + run < src.Count) sb.Append(' ');
                 i += run;
+                if (i < src.Count) sb.Append(' ');
             }
             return sb.ToString();
         }
