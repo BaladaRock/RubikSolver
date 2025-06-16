@@ -42,21 +42,23 @@ internal sealed record MovesOperations(
     internal static MovesOperations ComposeMove(MovesOperations a, MovesOperations b)
     {
         return new MovesOperations(
-            CornerPermutations: Perm(a.CornerPermutations, b.CornerPermutations),
-            CornerOrientations: Add(a.CornerOrientations, b.CornerOrientations, 3),
-            EdgePermutations: Perm(a.EdgePermutations, b.EdgePermutations),
-            EdgeOrientations: Add(a.EdgeOrientations, b.EdgeOrientations, 2)
+            CornerPermutations: ComposePermutation(a.CornerPermutations, b.CornerPermutations),
+            CornerOrientations: ComposeOrientation
+                (a.CornerOrientations, b.CornerOrientations, b.CornerPermutations, 3),
+            EdgePermutations: ComposePermutation(a.EdgePermutations, b.EdgePermutations),
+            EdgeOrientations: ComposeOrientation
+                (a.EdgeOrientations, b.EdgeOrientations, b.EdgePermutations, 2)
         );
 
-        byte[] Add(byte[] srcOri, byte[] delta, int mod)
+        byte[] ComposeOrientation(byte[] firstOri, byte[] secondOri, byte[] secondPerm, int mod)
         {
-            var r = new byte[srcOri.Length];
+            var r = new byte[firstOri.Length];
             for (var i = 0; i < r.Length; i++)
-                r[i] = (byte)((srcOri[i] + delta[i]) % mod);
+                r[i] = (byte)((firstOri[secondPerm[i]] + secondOri[i]) % mod);
             return r;
         }
 
-        byte[] Perm(byte[] srcPerm, byte[] map)
+        byte[] ComposePermutation(byte[] srcPerm, byte[] map)
         {
             var r = new byte[map.Length];
             for (var i = 0; i < r.Length; i++)

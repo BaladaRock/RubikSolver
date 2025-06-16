@@ -44,8 +44,8 @@ namespace RubikSolver.Helpers.Moves
 
         public static readonly MovesOperations B = new(
             CornerPermutations: [0, 1, 3, 7, 4, 5, 2, 6],
-            CornerOrientations: [0, 0, 2, 1, 0, 0, 2, 1],
-            EdgePermutations: [0, 1, 2, 10, 4, 5, 6, 11, 8, 9, 3, 7],
+            CornerOrientations: [0, 0, 1, 2, 0, 0, 2, 1],
+            EdgePermutations: [0, 1, 2, 11, 4, 5, 6, 10, 8, 9, 3, 7],
             EdgeOrientations: [0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1]);
     }
 }
