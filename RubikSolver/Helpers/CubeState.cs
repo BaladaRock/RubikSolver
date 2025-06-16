@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using RubikSolver.Helpers.Moves;
+using System.Linq;
 
 namespace RubikSolver.Helpers;
 
@@ -18,4 +19,16 @@ public sealed record CubeState(
             new byte[8],
             Enumerable.Range(0, 12).Select(i => (byte)i).ToArray(),
             new byte[12]);
+
+    public CubeState Apply(MovesOperations m)
+    {
+        var (ncPerm, ncOri, nePerm, neOri) = MovesOperations.ApplyArrays(this, m);
+
+        return new CubeState(
+            CornerPermutations: ncPerm,
+            CornerOrientations: ncOri,
+            EdgePermutations: nePerm,
+            EdgeOrientations: neOri);
+    }
+
 }

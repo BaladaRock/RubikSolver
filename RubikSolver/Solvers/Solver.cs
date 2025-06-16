@@ -24,7 +24,7 @@ namespace RubikSolver.Solvers
 
             foreach (var tok in tokens)
             {
-                _state = Moves.FaceMove[tok].Apply(_state);
+                _state =  _state.Apply(Moves.FaceMove[tok]);
             }
         }
 
@@ -73,7 +73,7 @@ namespace RubikSolver.Solvers
 
             foreach (var kv in Moves.FaceMove)
             {
-                var next = kv.Value.Apply(st);
+                var next = st.Apply(kv.Value);
                 path.Add(kv.Key);
                 if (SearchExact(next, left - 1, path))
                     return true;
@@ -94,7 +94,7 @@ namespace RubikSolver.Solvers
             foreach (var kv in Moves.FaceMove)
             {
                 path.Add(kv.Key);
-                foreach (var s in EnumerateExact(kv.Value.Apply(st), left - 1, path))
+                foreach (var s in EnumerateExact(st.Apply(kv.Value), left - 1, path))
                     yield return s;
                 path.RemoveAt(path.Count - 1);
             }
@@ -152,7 +152,7 @@ namespace RubikSolver.Solvers
                 var mv = kv.Key;
                 var def = kv.Value;
 
-                var next = def.Apply(st);
+                var next = st.Apply(def);
                 path.Add(mv);
                 if (Search(next, depth - 1, visitedConfigurations, path)) return true;
                 path.RemoveAt(path.Count - 1);

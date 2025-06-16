@@ -4,12 +4,12 @@ namespace RubikSolver.Helpers.Moves
 {
     internal static class Moves
     {
-        private static MovesOperations Pow(MovesOperations m, int n)
+        private static MovesOperations Pow(MovesOperations moveToCompose, int numberOfMovesToCompose)
         {
-            var r = m;
-            for (var i = 1; i < n; i++)
-                r = MovesOperations.ComposeMove(r, m);
-            return r;
+            var newMove = moveToCompose;
+            for (var i = 1; i < numberOfMovesToCompose; i++)
+                newMove = MovesOperations.ComposeMove(newMove, moveToCompose);
+            return newMove;
         }
 
         private static readonly MovesOperations U = MoveDefinitions.U;
