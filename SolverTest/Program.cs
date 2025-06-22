@@ -8,7 +8,7 @@ namespace SolverTest
     {
         private static void Main(string[] args)
         {
-            const string moves = "F U B";
+            const string moves = "F U R U' R' F'";
 
             var solver = new Solver();
             PrintConfiguration(moves, CubeState.Solved);
@@ -20,30 +20,30 @@ namespace SolverTest
             PrintConfiguration(moves, currentConfiguration, true);
 
             // Test finding solution
-            //var solution = solver.FindSolution(1);
-            //if (solution != null)
-            //{
-            //    Console.WriteLine("Solution found:");
-            //    Console.WriteLine(solution);
-            //}
-            //else
-            //{
-            //    Console.WriteLine("No solution found within the given depth.");
-            //}
+            var solution = solver.FindSolution(8);
+            if (solution != null)
+            {
+                Console.WriteLine("Solution found:");
+                Console.WriteLine(solution);
+            }
+            else
+            {
+                Console.WriteLine("No solution found within the given depth.");
+            }
 
-            //// Test finding solutions up to a given length
-            //var solutions = solver.FindSolutions(6);
-            //if (solutions == null || !solutions.Any())
-            //{
-            //    Console.WriteLine($"No solution found!");
-            //}
+            //Test finding solutions up to a given length
+            var solutions = solver.FindSolutions(10);
+            if (solutions == null || !solutions.Any())
+            {
+                Console.WriteLine($"No solution found!");
+            }
 
-            //foreach (var sol in solutions)
-            //{
-            //    Console.WriteLine($"Solution found: {sol}.");
-            //}
+            foreach (var sol in solutions)
+            {
+                Console.WriteLine($"Solution found: {sol}.");
+            }
 
-            // Test finding of the shortest solution up to a given length
+            //Test finding of the shortest solution up to a given length
             var shortestSolution = solver.FindShortestSolution(8);
             Console.WriteLine($"Shortest solution: {shortestSolution}");
 
