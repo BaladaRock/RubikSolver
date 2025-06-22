@@ -1,4 +1,4 @@
-﻿namespace RubikSolver.Helpers.Moves;
+﻿namespace CubeSolver.Helpers.Moves;
 
 /// Use this record to define a move on the cube
 public sealed record MovesOperations(

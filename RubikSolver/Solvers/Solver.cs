@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using RubikSolver.Helpers;
-using RubikSolver.Helpers.Moves;
+using CubeSolver.Helpers;
+using CubeSolver.Helpers.Moves;
 
-namespace RubikSolver.Solvers
+namespace CubeSolver.Solvers
 {
     public sealed class Solver(CubeState state)
     {

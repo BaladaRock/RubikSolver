@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RubikSolver\RubikSolver.csproj" />
+    <ProjectReference Include="..\RubikSolver\CubeSolver.csproj" />
   </ItemGroup>
 
 </Project>

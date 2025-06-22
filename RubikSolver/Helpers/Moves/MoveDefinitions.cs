@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
 
-namespace RubikSolver.Helpers.Moves
+namespace CubeSolver.Helpers.Moves
 {
     /// <summary>
     ///  The move definitions for the Rubik's Cube.

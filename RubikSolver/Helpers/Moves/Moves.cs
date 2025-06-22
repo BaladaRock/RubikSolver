@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RubikSolver.Helpers.Moves
+namespace CubeSolver.Helpers.Moves
 {
     internal static class Moves
     {

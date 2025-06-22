@@ -1,7 +1,7 @@
-﻿using RubikSolver.Helpers.Moves;
+﻿using CubeSolver.Helpers.Moves;
 using System.Linq;
 
-namespace RubikSolver.Helpers;
+namespace CubeSolver.Helpers;
 
 public sealed record CubeState(
     byte[] CornerPermutations, // 8 values values between 0-7

@@ -1,5 +1,5 @@
-﻿using RubikSolver.Helpers;
-using RubikSolver.Solvers;
+﻿using CubeSolver.Helpers;
+using CubeSolver.Solvers;
 using System.Linq;
 
 namespace SolverTest
